@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="flatlaf-2.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/flatlaf-2.6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/material-theme-lite-19.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
