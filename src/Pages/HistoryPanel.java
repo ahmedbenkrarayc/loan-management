@@ -17,8 +17,17 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Loans history panel inherits JPanel
+ * @author ahmed benkrara
+ */
 public class HistoryPanel extends JPanel {
+    //button used in JTable
     private JButton tablebtn;
+
+    /**
+     * constructor that displays all panel controlls
+     */
     public HistoryPanel(){
         FlatDarculaLaf.setup();
         HistoryController controller = new HistoryController();

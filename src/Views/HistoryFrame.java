@@ -7,7 +7,14 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * a small frame to display loan history of a student
+ * @author ahmed benkrara
+ */
 public class HistoryFrame extends JFrame {
+    /**
+     * constructor for displaying controls
+     */
     public HistoryFrame(){
         HistoryController controller = new HistoryController();
         FlatDarculaLaf.setup();

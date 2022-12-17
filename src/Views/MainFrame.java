@@ -7,7 +7,14 @@ import com.formdev.flatlaf.FlatDarculaLaf;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * main frame that contains all panels like a master page
+ * @author ahmed benkrara
+ */
 public class MainFrame extends JFrame {
+    /**
+     * a constructor for displaying controls
+     */
     public MainFrame(){
         super();
         this.setResizable(false);
@@ -69,11 +76,6 @@ public class MainFrame extends JFrame {
         menu2.add(returns);
         bar.add(menu2);
         getContentPane().add(new MaterialPanel());
-        //getContentPane().add(new HistoryPanel());
-        //getContentPane().add(new ReturnPanel());
-        //getContentPane().add(new OverdelayPanel());
-        //getContentPane().add(new SensitivePanel());
-        //getContentPane().add(new StatisticsPanel());
 
         this.setJMenuBar(bar);
         DataTransfer.main = this;

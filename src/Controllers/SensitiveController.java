@@ -10,9 +10,20 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * delay sensitive loans controller it communicates with EmpruntData and the view
+ * @author ahmed benkrara
+ */
 public class SensitiveController {
+    //EmpruntData object
     public EmpruntData data = new EmpruntData();
 
+    /**
+     * it fills the JTable in params with loan data that is 2days or less close to back date that is calculed too in this method
+     * @param table
+     * @param model
+     * @param search
+     */
     public void fillTable(JTable table, DefaultTableModel model, String search){
         model.getDataVector().clear();
         try {
@@ -52,6 +63,11 @@ public class SensitiveController {
         }
     }
 
+    /**
+     * it reads loan data that 2days or less closer to back date
+     * @param model
+     * @throws SQLException
+     */
     private void getAllData(DefaultTableModel model) throws SQLException {
         ArrayList<Emprunt> emprunts = data.getEmprunts();
         if(emprunts != null){

@@ -8,12 +8,26 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * a class that implements IMaterial and give a body to its methods to deal directly with database
+ * @author ahmed benkrara
+ */
 public class MaterialData implements IMaterial {
+    //private attribute from Database class
     private Database db;
+
+    /**
+     * Default constructor
+     */
     public MaterialData(){
         db = new Database();
     }
 
+    /**
+     * it reads all materials from database
+     * @return ArrayList<Material>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Material> getMaterials() throws SQLException {
         var result = db.getStatement().executeQuery("select * from material");
@@ -24,6 +38,12 @@ public class MaterialData implements IMaterial {
         return materials;
     }
 
+    /**
+     * it reads materials by title
+     * @param titre
+     * @return ArrayList<Material>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Material> getMaterial(String titre) throws SQLException {
         var result = db.getConnection().prepareStatement("select * from material where titre like ?");
@@ -36,6 +56,15 @@ public class MaterialData implements IMaterial {
         return materials;
     }
 
+    /**
+     * it updates material status
+     * status = 1 means the material is available to loan
+     * status = 0 means the material is currently loaned
+     * @param id
+     * @param status
+     * @return Boolean
+     * @throws SQLException
+     */
     @Override
     public Boolean changeStatus(int id, int status) throws SQLException {
         var prs = db.getConnection().prepareStatement("update material set status = ? where id = ?");
@@ -49,6 +78,12 @@ public class MaterialData implements IMaterial {
         return true;
     }
 
+    /**
+     * checking if a specific material is available
+     * @param titre
+     * @return Boolean
+     * @throws SQLException
+     */
     @Override
     public Boolean isAvailable(String titre) throws SQLException {
         var result = db.getConnection().prepareStatement("select * from material where titre like ?");
@@ -63,6 +98,12 @@ public class MaterialData implements IMaterial {
         return false;
     }
 
+    /**
+     * it reads from database a material by its id
+     * @param id
+     * @return Material
+     * @throws SQLException
+     */
     @Override
     public Material getMaterialById(int id) throws SQLException {
         PreparedStatement result = null;

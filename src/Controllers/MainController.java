@@ -7,8 +7,18 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * Main controller it communcates with MaterialData and the view
+ * @author ahmed benkrara
+ */
 public class MainController {
+    //MaterialData object
     private MaterialData materialData = new MaterialData();
+
+    /**
+     * it gets all material data
+     * @return
+     */
     public ArrayList<Material> getAllMaterials(){
         try {
             return materialData.getMaterials();
@@ -17,6 +27,11 @@ public class MainController {
         }
     }
 
+    /**
+     * it looks for materials with their title
+     * @param titre
+     * @return
+     */
     public ArrayList<Material> findMaterial(String titre){
         try {
             return materialData.getMaterial(titre);
@@ -25,6 +40,11 @@ public class MainController {
         }
     }
 
+    /**
+     * it checks if a material is available or no and alerts a message if the material isn't available to be loan
+     * @param titre
+     * @return
+     */
     public Boolean isAvailable(String titre){
         try {
             if(materialData.isAvailable(titre)){

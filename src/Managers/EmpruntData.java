@@ -13,12 +13,27 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * a class that implements IEmprunt Interface to give a body to its methods to deal directly with database
+ * @author ahmed benkrara
+ */
 public class EmpruntData implements IEmprunt {
+    //private attribute from Database class
     private Database db;
+
+    /**
+     * Default constructor
+     */
     public EmpruntData(){
         db = new Database();
     }
 
+    /**
+     * it adds an emprunt to the database and if things went correctly it returns true and if something went wrong it returns false
+     * @param emprunt
+     * @return boolean
+     * @throws SQLException
+     */
     @Override
     public boolean addEmprunt(Emprunt emprunt) throws SQLException {
         var prs = db.getConnection().prepareStatement("insert into emprunt(material_id,student_id,date_l,date_back,duration) values (?,?,?,?,?)");
@@ -35,6 +50,12 @@ public class EmpruntData implements IEmprunt {
         return true;
     }
 
+    /**
+     * it reads from database loans that were done by a specific student if no loans found it returns null
+     * @param id
+     * @return ArrayList<Emprunt>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Emprunt> getEmpruntByStudentId(int id) throws SQLException {
         PreparedStatement result = null;
@@ -60,6 +81,12 @@ public class EmpruntData implements IEmprunt {
         return null;
     }
 
+    /**
+     * it reads from database loans by a material name that aren't back yet
+     * @param name
+     * @return ArrayList<Emprunt>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Emprunt> getEmpruntByMaterial(String name) throws SQLException {
         PreparedStatement result = null;
@@ -85,6 +112,11 @@ public class EmpruntData implements IEmprunt {
         return null;
     }
 
+    /**
+     * it gets all loans that aren't back yet
+     * @return ArrayList<Emprunt>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Emprunt> getEmprunts() throws SQLException {
         PreparedStatement result = null;
@@ -108,6 +140,12 @@ public class EmpruntData implements IEmprunt {
         return null;
     }
 
+    /**
+     * it reads from database loans that aren't back by a student email or material title
+     * @param name
+     * @return ArrayList<Emprunt>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Emprunt> getEmprunts(String name) throws SQLException {
         PreparedStatement result = null;
@@ -133,6 +171,12 @@ public class EmpruntData implements IEmprunt {
         return null;
     }
 
+    /**
+     * when a loan is returned this methods sets back_date to today's date and if things went correctly it returns true else it returns false
+     * @param id
+     * @return boolean
+     * @throws SQLException
+     */
     @Override
     public boolean effectBackDate(int id) throws SQLException {
         var prs = db.getConnection().prepareStatement("update emprunt set date_back = ? where id = ?");
@@ -146,6 +190,12 @@ public class EmpruntData implements IEmprunt {
         return true;
     }
 
+    /**
+     * it reads plot chart data and returns every loaned material's title with how many times it was loaned by a specific student using his email
+     * @param email
+     * @return DefaultCategoryDataset
+     * @throws SQLException
+     */
     @Override
     public DefaultCategoryDataset getPlotData(String email) throws SQLException {
         PreparedStatement result = null;
@@ -168,6 +218,12 @@ public class EmpruntData implements IEmprunt {
         return null;
     }
 
+    /**
+     * it returns pie chart data, it returns top 5 loaned materials
+     * 'statistic' in the query is a view created in database
+     * @return DefaultPieDataset
+     * @throws SQLException
+     */
     @Override
     public DefaultPieDataset getPieData() throws SQLException {
         PreparedStatement result = null;

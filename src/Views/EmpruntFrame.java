@@ -9,12 +9,18 @@ import Models.Student;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.regex.Pattern;
 
+import java.util.Date;
+
+/**
+ * a small frame for the last step of adding a loan
+ * @author ahmed benkrara
+ */
 public class EmpruntFrame extends JFrame {
 
+    /**
+     * a constructor to add controls
+     */
     public EmpruntFrame(){
         super();
 
@@ -59,7 +65,6 @@ public class EmpruntFrame extends JFrame {
                 if(Integer.parseInt(duration.getText().trim()) > 0){
                     //emprunt
                     if(controller.emprunter(new Emprunt(new Date(),null,Integer.parseInt(duration.getText().trim()),DataTransfer.material, DataTransfer.student))){
-                        System.out.println("dooooooooooooone");
                         DataTransfer.studentframe.dispose();
                         this.dispose();
                         DataTransfer.main.setVisible(true);

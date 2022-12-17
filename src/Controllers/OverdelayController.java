@@ -11,9 +11,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Overdelay controller it communicates with EmpruntData and the view
+ */
 public class OverdelayController {
+    //EmpruntData object
     private EmpruntData data = new EmpruntData();
 
+    /**
+     * it display in the view overdelay loans with displaying how many days the loan is late
+     * @param table
+     * @param model
+     * @param search
+     */
     public void fillTable(JTable table, DefaultTableModel model, String search){
         model.getDataVector().clear();
         try {
@@ -49,6 +59,11 @@ public class OverdelayController {
         }
     }
 
+    /**
+     * it affects all loans that aren't back yet to the DefaultTableModel in params
+     * @param model
+     * @throws SQLException
+     */
     private void getAllData(DefaultTableModel model) throws SQLException {
         ArrayList<Emprunt> emprunts = data.getEmprunts();
         if(emprunts != null){

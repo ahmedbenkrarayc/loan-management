@@ -9,7 +9,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * a panel that contains over delay loans controls
+ * @author ahmed benkrara
+ */
 public class OverdelayPanel extends JPanel {
+
+    /**
+     * constructor that contains all controls
+     */
     public OverdelayPanel(){
         FlatDarculaLaf.setup();
         OverdelayController controller = new OverdelayController();

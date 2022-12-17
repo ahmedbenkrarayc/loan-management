@@ -8,7 +8,15 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * statistics on the equipment most borrowed by a given student
+ * statistics on all the most popular equipment borrowed in general
+ * @author ahmed benkrara
+ */
 public class StatisticsPanel extends JPanel {
+    /**
+     * constructor for displaying controls
+     */
     public StatisticsPanel(){
         FlatDarculaLaf.setup();
         StatisticsController controller = new StatisticsController();

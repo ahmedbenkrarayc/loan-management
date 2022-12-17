@@ -8,7 +8,14 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+/**
+ * student frame that contains student panel and listens on closing event to display main on closing
+ * @author ahmed benrkara
+ */
 public class StudentFrame extends JFrame {
+    /**
+     * a constructor for displaying controls
+     */
     public StudentFrame(){
         super();
         DataTransfer.main.setVisible(false);

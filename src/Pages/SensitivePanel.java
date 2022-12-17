@@ -9,7 +9,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
+/**
+ * delay sensitive loans panel
+ * @author ahmed
+ */
 public class SensitivePanel extends JPanel {
+    /**
+     * constructor for displaying controls
+     */
     public SensitivePanel(){
         FlatDarculaLaf.setup();
         SensitiveController controller = new SensitiveController();

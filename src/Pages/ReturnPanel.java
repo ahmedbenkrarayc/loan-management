@@ -11,8 +11,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 
-public class ReturnPanel extends JPanel {
+/**
+ * a panel for displaying all loans data and giving the right to return a material
+ * @author ahmed benkrara
+ */
+public class ReturnPanel extends JPanel{
+    //button that will be displayed in JTable
     private JButton tablebtn;
+
+    /**
+     * Constructor that displays all controls
+     */
     public ReturnPanel(){
         FlatDarculaLaf.setup();
         ReturnController controller = new ReturnController();

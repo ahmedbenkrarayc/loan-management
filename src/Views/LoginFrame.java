@@ -8,7 +8,14 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * login frame
+ * @author ahmed benkrara
+ */
 public class LoginFrame extends JFrame {
+    /**
+     * constructor for displaying controls
+     */
     public LoginFrame(){
         super();
         LoginController controller = new LoginController();

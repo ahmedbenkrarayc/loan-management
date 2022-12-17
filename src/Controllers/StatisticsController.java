@@ -3,7 +3,6 @@ package Controllers;
 import Managers.EmpruntData;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
@@ -14,12 +13,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
 
+/**
+ * Statistics controller it communicates with EmpruntData and the view
+ * @author ahmed benkrara
+ */
 public class StatisticsController {
+    //EmpruntData object
     private EmpruntData empruntData = new EmpruntData();
+
+    /**
+     * it brings loans done by a student using his email
+     * for each loans it displays material title and how many times it was loaned by a specific student
+     * data is displayed as a plot chart in parent JPanel
+     * if no data found it alerts a message
+     * @param parent
+     * @param email
+     */
     public void plotchart(JPanel parent,String email){
         try {
             if(email != null){
-                System.out.println("removed");
                 parent.remove(1);
             }
             DefaultCategoryDataset data = empruntData.getPlotData(email);
@@ -66,6 +78,10 @@ public class StatisticsController {
         }
     }
 
+    /**
+     * it displays top 5 loan materials as a pie chart in parent JPanel
+     * @param parent
+     */
     public void piechart(JPanel parent){
         try {
             DefaultPieDataset Pie = empruntData.getPieData();

@@ -16,8 +16,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+/**
+ * inherits JPanel and displays materials
+ * @author ahmed benkrara
+ */
 public class MaterialPanel extends JPanel {
+    //MainController object
     private MainController materialData = new MainController();
+
+    /**
+     * Constructor for desplaying the view controlls
+     */
     public MaterialPanel(){
         setPreferredSize(new Dimension(1040,700));
         setBackground(new Color(0,5,24));
@@ -77,6 +86,11 @@ public class MaterialPanel extends JPanel {
         this.add(scrollPane,BorderLayout.CENTER);
     }
 
+    /**
+     * method for displaying Materials data
+     * @param data
+     * @param container
+     */
     private void display(ArrayList<Material> data, JPanel container){
         container.removeAll();
         for(int i=0;i<data.size();i++){

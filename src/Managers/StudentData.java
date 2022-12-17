@@ -7,12 +7,25 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * a class that implements IStudent and give a body to its methods to deal directly with database
+ * @author ahmed benkrara
+ */
 public class StudentData implements IStudent {
+    //private attribute from Database class
     private Database db;
+    /**
+     * Default constructor
+     */
     public StudentData(){
         db = new Database();
     }
 
+    /**
+     * it reads all students from database
+     * @return ArrayList<Student>
+     * @throws SQLException
+     */
     @Override
     public ArrayList<Student> getStudents() throws SQLException {
         PreparedStatement result = null;
@@ -29,6 +42,12 @@ public class StudentData implements IStudent {
         }
     }
 
+    /**
+     * creating a new student
+     * @param user
+     * @return boolean
+     * @throws SQLException
+     */
     @Override
     public boolean addStudent(Student user) throws SQLException {
         try {
@@ -52,16 +71,32 @@ public class StudentData implements IStudent {
         }
     }
 
+    /**
+     * it will be used in future versions to update student informations
+     * @param user
+     * @return
+     */
     @Override
     public boolean updateStudent(Student user) {
         return false;
     }
 
+    /**
+     * it will be used in future versions to delete a student
+     * @param user
+     * @return
+     */
     @Override
     public boolean deleteStudent(Student user) {
         return false;
     }
 
+    /**
+     * it reads from database a student by his id
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Student getStudentById(int id) throws SQLException {
         PreparedStatement result = null;
@@ -79,6 +114,12 @@ public class StudentData implements IStudent {
 
         return null;
     }
+
+    /**
+     * it reads from database a student by his email
+     * @param email
+     * @return Student
+     */
 
     @Override
     public Student getStudentByEmail(String email) {

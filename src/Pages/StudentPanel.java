@@ -4,14 +4,18 @@ import Controllers.StudentController;
 import Managers.DataTransfer;
 import Models.Student;
 import Views.EmpruntFrame;
-import com.formdev.flatlaf.FlatDarculaLaf;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * Student Panel for adding a new student or liking an existing student to a loan
+ */
 public class StudentPanel extends JPanel {
+    /**
+     * constructor for displaying controls
+     */
     public StudentPanel(){
         StudentController controller = new StudentController();
         setPreferredSize(new Dimension(1040,700));
