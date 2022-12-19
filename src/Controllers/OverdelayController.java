@@ -41,7 +41,9 @@ public class OverdelayController {
                         //back date
                         if(expected_back.compareTo(new Date(Calendar.getInstance().getTimeInMillis())) == -1){
                             long delay = Emprunt.delay(new Date(Calendar.getInstance().getTimeInMillis()),expected_back);
-                            model.addRow(new Object[]{emprunts.get(i).getStudent().getNom(),emprunts.get(i).getStudent().getPrenom(),emprunts.get(i).getStudent().getEmail(),emprunts.get(i).getMaterial().getTitre(),emprunts.get(i).getDate_l(),emprunts.get(i).getDuration(),delay});
+                            if(delay > 0){
+                                model.addRow(new Object[]{emprunts.get(i).getStudent().getNom(),emprunts.get(i).getStudent().getPrenom(),emprunts.get(i).getStudent().getEmail(),emprunts.get(i).getMaterial().getTitre(),emprunts.get(i).getDate_l(),emprunts.get(i).getDuration(),delay});
+                            }
                         }
                     }
                 }else{
@@ -76,7 +78,9 @@ public class OverdelayController {
                 //back date
                 if(expected_back.compareTo(new Date(Calendar.getInstance().getTimeInMillis())) == -1){
                     long delay = Emprunt.delay(new Date(Calendar.getInstance().getTimeInMillis()),expected_back);
-                    model.addRow(new Object[]{emprunts.get(i).getStudent().getNom(),emprunts.get(i).getStudent().getPrenom(),emprunts.get(i).getStudent().getEmail(),emprunts.get(i).getMaterial().getTitre(),emprunts.get(i).getDate_l(),emprunts.get(i).getDuration(),delay});
+                    if(delay > 0){
+                        model.addRow(new Object[]{emprunts.get(i).getStudent().getNom(),emprunts.get(i).getStudent().getPrenom(),emprunts.get(i).getStudent().getEmail(),emprunts.get(i).getMaterial().getTitre(),emprunts.get(i).getDate_l(),emprunts.get(i).getDuration(),delay});
+                    }
                 }
             }
         }
