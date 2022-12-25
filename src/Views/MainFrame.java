@@ -31,6 +31,7 @@ public class MainFrame extends JFrame {
         loans.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new MaterialPanel());
+            this.setTitle("Materials");
             refresh();
         });
         menu.add(loans);
@@ -40,6 +41,7 @@ public class MainFrame extends JFrame {
         history.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new HistoryPanel());
+            this.setTitle("Logs");
             refresh();
         });
         menu1.add(history);
@@ -47,6 +49,7 @@ public class MainFrame extends JFrame {
         statistics.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new StatisticsPanel());
+            this.setTitle("Statistics");
             refresh();
         });
         menu1.add(statistics);
@@ -54,6 +57,7 @@ public class MainFrame extends JFrame {
         overdue.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new OverdelayPanel());
+            this.setTitle("Over delay");
             refresh();
         });
         menu1.add(overdue);
@@ -61,6 +65,7 @@ public class MainFrame extends JFrame {
         sensitive.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new SensitivePanel());
+            this.setTitle("Delay sensitive loans");
             refresh();
         });
         menu1.add(sensitive);
@@ -71,11 +76,13 @@ public class MainFrame extends JFrame {
         returns.addActionListener(e->{
             getContentPane().remove(0);
             getContentPane().add(new ReturnPanel());
+            this.setTitle("Return");
             refresh();
         });
         menu2.add(returns);
         bar.add(menu2);
         getContentPane().add(new MaterialPanel());
+        this.setTitle("Materials");
 
         this.setJMenuBar(bar);
         DataTransfer.main = this;

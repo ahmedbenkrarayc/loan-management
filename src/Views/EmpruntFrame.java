@@ -23,7 +23,6 @@ public class EmpruntFrame extends JFrame {
      */
     public EmpruntFrame(){
         super();
-
         EmpruntController controller = new EmpruntController();
         this.getContentPane().setLayout(null);
         this.setResizable(false);
