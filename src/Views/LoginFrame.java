@@ -18,6 +18,7 @@ public class LoginFrame extends JFrame {
      */
     public LoginFrame(){
         super();
+        this.setTitle("Login");
         LoginController controller = new LoginController();
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
